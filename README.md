@@ -1,15 +1,15 @@
 # Monkeys Island
 
-The matrix is converted to graph.
+1) The matrix is converted to graph.
 <br/>
 
 ![image](https://user-images.githubusercontent.com/7583617/119549424-92635380-bd6d-11eb-947d-80449fc23328.png)
 
-So, with created graph all vertices(islands with connection) is check to get the logest path(bananas ammount)
+2) So, with created graph all vertices(islands with connection) is check to get the logest path(bananas ammount)
 
 ![image](https://user-images.githubusercontent.com/7583617/119549019-31d41680-bd6d-11eb-9252-2d2994c7bc82.png)
 
-Get the first node (start) and check the all the Neighborhood, if the node wasn’t visited it is schedule to be checked and every time check the path between the actual path and origin is greater than the value stored.
+3) Get the first node (start) and check the all the Neighborhood, if the node wasn’t visited it is schedule to be checked and every time check the path between the actual path and origin is greater than the value stored.
 
 # Class Structure
 
