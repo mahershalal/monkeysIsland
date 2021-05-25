@@ -26,5 +26,8 @@ Get the first node (start) and check the all the Neighborhood, if the node wasnâ
 - NeighborhoodInfo: Information from neighborhood island, all island connecteds with another
 
 
-# Algorihtm explained <br/>
-https://www.codingame.com/playgrounds/1608/shortest-paths-with-dijkstras-algorithm/dijkstras-algorithm
+# helper links <br/>
+- Dijkstra explained 
+  - https://www.codingame.com/playgrounds/1608/shortest-paths-with-dijkstras-algorithm/dijkstras-algorithm
+- Graph online helps with logical and validate
+  - https://graphonline.ru/en/#
