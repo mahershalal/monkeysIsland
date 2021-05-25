@@ -1,17 +1,12 @@
 /**
- * @description       : 
- * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
- * @group             : 
- * @last modified on  : 05-25-2021
- * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
- * Modifications Log 
- * Ver   Date         Author                               Modification
- * 1.0   05-24-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+ * @description       :  mokeys Island / vertice
 **/
 public with sharing class Island {
         
+    // register all connection
     private List<Bridge> bridges = new List<Bridge>();
 
+    // vertice name
     public string name { get; set; }
     
     public Island(string name)
@@ -19,6 +14,7 @@ public with sharing class Island {
         this.name = name;
     }
 
+    // get all island conected by bridges
     public List<NeighborhoodInfo> neighbors { get{
         List<NeighborhoodInfo> neighborsAux = new List<NeighborhoodInfo>();
 
@@ -29,14 +25,25 @@ public with sharing class Island {
         return neighborsAux;
     } }
 
-
+    
+    /**
+    * @description Connect island to other island
+    * @param islandTo island to be connected
+    * @param bananasAmmount bannas ammount is the weight until next island
+    **/
     public void connectTo(Island islandTo, integer bananasAmmount)
     {
         this.bridges.Add(new Bridge(bananasAmmount, this, islandTo));
     }
 
+    /**
+     * @description       :  Exception to be throw for invalid argument
+    **/
     public class ArgumentException extends Exception {}
 
+    /**
+     * @description       :  Information from neighborhood island
+    **/
     public class NeighborhoodInfo
     {
         public Island island { get; set; }
@@ -49,6 +56,9 @@ public with sharing class Island {
         }
     }
 
+    /** 
+     * @description       :  Bridge that connect a island to another
+    **/    
     private class Bridge
     {
         private integer bananasAmmount { get; set; }
