@@ -1,24 +1,26 @@
 /**
- * @description       : 
- * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
- * @group             : 
- * @last modified on  : 05-25-2021
- * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
- * Modifications Log 
- * Ver   Date         Author                               Modification
- * 1.0   05-25-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+ * @description       : Class responsible to used the Dijkstra algorithm to get the better path between two island
 **/
 public with sharing class Dijkstra {
     
     Island start  = new Island('START');
     Island finish = new Island('FINISH');
 
+    /**
+    * @description Matrix to be checked the better path
+    * @param matrix matrix to be checked
+    * @return Map<Island, Integer>  return all island path with the length until there
+    **/
     public Map<Island,integer> findLongestPath(List<List<integer>> matrix){
 
         this.matrixToGraph(matrix);
         return this.findLongestPath(start, finish);
     }
-
+    
+    /**
+    * @description Convert Matrix to Graph consideting the move allowed
+    * @param matrix matrix to be converted
+    **/
     public void matrixToGraph(List<List<integer>> matrix){
 
         Map<string,island> islandsMap = new Map<string, Island>();
@@ -76,7 +78,12 @@ public with sharing class Dijkstra {
 
         }
     }
-
+    
+    /**
+    * @description return the ammount from last island in path
+    * @param islaPath island path
+    * @return integer return the bananas ammount
+    **/
     public static integer getPathAmmount(map<Island,integer> islaPath){
 
         List<island> islandPathAux = new List<island>(islaPath.keySet());
@@ -88,6 +95,11 @@ public with sharing class Dijkstra {
         return islaPath.get(isla);
     }
 
+    /**
+    * @description return all island path as string
+    * @param islaPath island path 
+    * @return string Return passa like START -> (1,0) -> (2,1) -> (2,2) = 12
+    **/
     public static string getPathString(map<Island,integer> islaPath){
         string path = '';
         List<island> islandPathAux = new List<island>(islaPath.keySet());
@@ -110,6 +122,11 @@ public with sharing class Dijkstra {
         return path;
     }
 
+    /**
+    * @description reverse list frmo back
+    * @param islaPath island path to reordened
+    * @return Map<island, integer> return the same list ordened
+    **/
     private Map<island,integer> reverseList(Map<island,integer> islaPath){
 
         List<island> islandPathAux = new List<island>(islaPath.keySet());
@@ -125,10 +142,23 @@ public with sharing class Dijkstra {
         return retorno;
     }
 
+    
+    /**
+    * @description Format the islandName from matrix
+    * @param line line number
+    * @param col column number
+    * @return string return the island name
+    **/
     private string getIslandName(integer line, integer col){
         return '('+line + ',' + col + ')';
     }
 
+    /**
+    * @description Calculate the longest path between From and To
+    * @param islandFrom island From
+    * @param islandTo  island to
+    * @return Map<Island, Integer>  return all island path with the length until there
+    **/
     public Map<Island, Integer> findLongestPath(Island islandFrom, Island islandTo)
     {
         VisitingData control = new VisitingData();
@@ -153,7 +183,7 @@ public with sharing class Dijkstra {
                 
                 Integer probableWeight = (visitingIslandWeight.Value + neighborhoodInfo.bananasToIsland);
 
-                if ((neighborWeight.Value) < (probableWeight))
+                if ((neighborWeight.Value) <= (probableWeight))
                 {
                     control.UpdateWeight(neighborhoodInfo.island, new Weight(visitingIsland, probableWeight));
                 }
