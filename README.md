@@ -25,6 +25,12 @@ Get the first node (start) and check the all the Neighborhood, if the node wasnâ
 
 - NeighborhoodInfo: Information from neighborhood island, all island connecteds with another
 
+# main Method  <br/>
+![image](https://user-images.githubusercontent.com/7583617/119556564-9004f780-bd75-11eb-83e7-6be3393f6893.png)
+
+ <br/>
+![image](https://user-images.githubusercontent.com/7583617/119556607-a01cd700-bd75-11eb-8981-cb69b0113884.png)
+
 
 # helper links <br/>
 - Dijkstra explained 
