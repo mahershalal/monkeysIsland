@@ -1,5 +1,6 @@
 /**
  * @description       : Class responsible to used the Dijkstra algorithm to get the better path between two island
+ * testes
 **/
 public with sharing class Dijkstra {
     
